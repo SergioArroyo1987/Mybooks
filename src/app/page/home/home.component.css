@@ -1,0 +1,18 @@
+.principal{
+    
+    display:flex;
+    height: 80vh;
+    background-image:url("/assets/img/libreria.jpg") ;
+    
+    
+}
+.texto{
+    display: flex;
+    
+    
+    color:white;
+    align-items: center;
+    align-content: center;
+    margin-left: 10%;
+   
+}
