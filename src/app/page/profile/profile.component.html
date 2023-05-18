@@ -1,0 +1,35 @@
+<div class="padre">
+    <div class="centro">
+    <div class="izquierda">
+        <div class="imagen">
+            <img src="{{persona.photo}}" id="foto">
+        </div>
+        <div class="datos">
+           Nombre: <input type="text" id="name" value="{{persona.name}}" >
+           Apellido: <input type="text" id="apellido" value="{{persona.last_name}}" >
+           Correo: <input type="text" id="correo" value="{{persona.email}}">
+           
+        </div>
+    </div>
+    <div class="derecha">
+        <h2><u>Editar datos</u></h2>
+        <form>
+            <li>
+                <input type="text" id="Nombre" name="nombre" placeholder="Nombre" #nombre>
+            </li>
+            <li>
+                <input type="text" id="apellido" name="apellidos" placeholder="Apellidos" #apellidos>
+            </li>
+            <li>
+                <input type="text" id="Correo" name="correo" placeholder="Correo" #correo>
+            </li>
+            <li>
+                <input type="text" id="url" name="url" placeholder="Url" #url>
+            </li>
+            <button class="bo" name="boton" type="button" (click)="enviar(nombre.value,apellidos.value,correo.value,url.value)">Enviar</button>
+
+        </form>
+
+    </div>
+</div>
+</div>
