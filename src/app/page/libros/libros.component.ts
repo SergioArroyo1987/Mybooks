@@ -6,16 +6,20 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./libros.component.css']
 })
 export class LibrosComponent {
-  libro:Book[];
+  libros:Book[];
   constructor(){
-    this.libro=[
+    this.libros=[
       new Book("sergio","Arroyo","Terror",109,"https://mott.pe/noticias/wp-content/uploads/2016/03/libros-bb.jpg"),
       new Book("Irene","Arroyo","Terror",109,"https://mott.pe/noticias/wp-content/uploads/2016/03/libros-bb.jpg")
       ]  ;
 }
-enviar(titulo:string,autor:string,precio:number,url:string,genero:string){
-  this.libro.push(new Book(titulo,genero,autor,precio,url));
+enviar(id:number,titulo:string,autor:string,precio:number,url:string,genero:string,user:number){
+  this.libros.push(new Book(titulo,genero,autor,precio,url,id,user));
 }
-
+eliminarlibro(borrarlibro:number):void{
+  console.log(borrarlibro);
+  
+  this.libros=this.libros.filter(exlibros=>exlibros.id_book!=borrarlibro);
+}
 }
 

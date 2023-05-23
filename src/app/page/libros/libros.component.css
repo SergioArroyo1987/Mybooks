@@ -8,14 +8,9 @@
     
     
 }
-.li{
-    margin: 2px;
-   
-}
 
-.cambiar{
-    background-color:  red;
-}
+
+
 .libros{
     display: flex;
     flex-direction: row;
@@ -27,15 +22,7 @@
     align-items: center;
     
 }
-#libro{
-    display: flex;
-    flex-direction: column;
-    border:solid yellow 2px;
-    width: 200px;
-    height:350px;
-    
-    
-}
+
 .formulario{
     display: flex;
     flex-direction: column;
@@ -44,5 +31,12 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+  
+}
+h2{
     color: white;
+}
+li{
+    color: white;
+    font-style: italic;
 }

@@ -1,0 +1,13 @@
+<div  class="card li  "id="libro" >
+  <a class="boton" type="button" (click)="enviarborrado()">x</a>
+    <img src="{{exlibros.photo}}" class="card-img-top" alt="...">
+    <div  class="card-body datos">
+      <h5 class="card-title">Titulo:{{exlibros.title}}</h5>
+      <p class="card-text">Id-Titulo:{{exlibros.id_book}}</p>
+      <p class="card-text">Autor:{{exlibros.author}}</p>
+      <p class="card-text">Precio:{{exlibros.price}}</p>
+      <p class="card-text">Id:{{exlibros.id_book |referencia}}</p>
+      <a  class="btn btn-primary"[ngClass]="par===true ?'cambiar':''">Comprar</a>
+      
+    </div>
+</div>

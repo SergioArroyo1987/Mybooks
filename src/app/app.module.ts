@@ -12,6 +12,7 @@ import { ProfileComponent } from './page/profile/profile.component';
 import { BooksComponent } from './page/books/books.component';
 import { LibrosComponent } from './page/libros/libros.component';
 import { ReferenciaPipe } from './pipes/referencia.pipe';
+import { CardComponent } from './component/card/card.component';
 
 
 
@@ -27,6 +28,7 @@ import { ReferenciaPipe } from './pipes/referencia.pipe';
     BooksComponent,
     LibrosComponent,
     ReferenciaPipe,
+    CardComponent,
     
   
   ],

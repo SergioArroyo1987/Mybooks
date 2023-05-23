@@ -1,22 +1,22 @@
 <div class="padre">
-<div *ngIf="libro.length===0">
+<div *ngIf="libros.length===0">
     <h1>Base de datos vacia</h1>
 </div>
 <div class="libros">
-<div *ngFor="let libr of libro;let par=even" class="card li  "id="libro" >
-    <img src="{{libr.photo}}" class="card-img-top" alt="...">
-    <div  class="card-body datos">
-      <h5 class="card-title">Titulo:{{libr.title}}</h5>
-      <p class="card-text">Autor:{{libr.author}}</p>
-      <p class="card-text">Precio:{{libr.price}}</p>
-      <p class="card-text">Id:{{libr.id_book |referencia}}</p>
-      <a  class="btn btn-primary"[ngClass]="par===true ?'cambiar':''">Comprar</a>
-    </div>
+    <ng-container *ngFor="let libro of libros;let par=even">
+    <app-card [exlibros]="libro" [par]="par"(borrarlibro)="eliminarlibro($event)"></app-card>
+</ng-container>
   </div>
-</div>
+
 <div class="formulario">
   <form>
     <h2><u>Insertar Libro</u></h2>
+    <li>
+        <input type="text" id="id_libro" name="id" placeholder="id_Book" #id>
+    </li>
+    <li>
+        <input type="text" id="id_User" name="id" placeholder="id_User" #user>
+    </li>
     <li>
         <input type="text" id="titulo" name="titulo" placeholder="Titulo" #titulo>
     </li>
@@ -32,7 +32,7 @@
     <li>
         <input type="text" id="url" name="url" placeholder="Foto" #url>
     </li>
-    <button class="bo" name="boton" type="button" (click)="enviar(titulo.value,autor.value,precio.value,url.value,genero.value)">Enviar</button>
+    <button class="bo" name="boton" type="button" (click)="enviar(id.value,user.value,titulo.value,autor.value,precio.value,url.value,genero.value)">Enviar</button>
 
 </form>
 </div>
