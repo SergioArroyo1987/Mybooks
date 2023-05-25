@@ -16,6 +16,7 @@ import { CardComponent } from './component/card/card.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { CardComponent } from './component/card/card.component';
     LibrosComponent,
     ReferenciaPipe,
     CardComponent,
+    
     
   
   ],

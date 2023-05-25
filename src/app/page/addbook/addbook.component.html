@@ -1,0 +1,28 @@
+<div class="formulario">
+    <form>
+      <h2><u>Insertar Libro</u></h2>
+      <li>
+          <input type="text" id="id_libro" name="id" placeholder="id_Book" #id>
+      </li>
+      <li>
+          <input type="text" id="id_User" name="id" placeholder="id_User" #user>
+      </li>
+      <li>
+          <input type="text" id="titulo" name="titulo" placeholder="Titulo" #titulo>
+      </li>
+      <li>
+          <input type="text" id="Autor" name="autor" placeholder="Autor" #autor>
+      </li>
+      <li>
+          <input type="text" id="genero" name="genero" placeholder="Genero" #genero>
+      </li>
+      <li>
+          <input type="text" id="precio" name="precio" placeholder="Precio" #precio>
+      </li>
+      <li>
+          <input type="text" id="url" name="url" placeholder="Foto" #url>
+      </li>
+      <button class="bo" name="boton" type="button" (click)="enviar(id.value,titulo.value,autor.value,genero.value,precio.value,url.value,user.value)">Enviar</button>
+  
+  </form>
+  </div>
