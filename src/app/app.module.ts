@@ -13,6 +13,9 @@ import { BooksComponent } from './page/books/books.component';
 import { LibrosComponent } from './page/libros/libros.component';
 import { ReferenciaPipe } from './pipes/referencia.pipe';
 import { CardComponent } from './component/card/card.component';
+import { LoginComponent } from './page/login/login.component';
+import { FormLoginComponent } from './component/form-login/form-login.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,13 +33,17 @@ import { CardComponent } from './component/card/card.component';
     LibrosComponent,
     ReferenciaPipe,
     CardComponent,
+    LoginComponent,
+    FormLoginComponent,
     
     
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,11 +25,12 @@ eliminarlibro(borrarlibro:number):void{
  this.libro.delete(borrarlibro);
 }
 buscarfuncion(a:number){
-  
+  if(a){
   this.libros=[];
    this.libros.push(this.libro.getOne(a));
-  
-  
+  }else{
+    this.libros=this.libro.getall();
+  }  
   
   
 }

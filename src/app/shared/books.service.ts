@@ -38,7 +38,10 @@ export class BooksService {
         modificacion=true;
       }
     }
+    console.log(modificacion);
     return modificacion;
+    
+    
    }
 
 }

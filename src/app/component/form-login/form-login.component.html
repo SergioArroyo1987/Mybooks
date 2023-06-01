@@ -1,0 +1,28 @@
+<div class="principal">
+<form [formGroup]="formulario" class="a">
+    <label>Nombre</label>
+    <input name="nombre" formControlName="nombre" 
+    [ngClass]="{'error':(formulario.get('nombre').dirty ||formulario.get('nombre').touched &&!formulario.get('nombre').valid)}">
+    <div  *ngIf="!formulario.get('nombre').valid ">
+        El nombre es necesario
+        </div>
+    <label>E-mail</label>
+    <input name="E-mail" formControlName="email" 
+    [ngClass]="{'error':(formulario.get('email').dirty ||formulario.get('email').touched &&!formulario.get('email').valid)}">
+    <div  *ngIf="!formulario.get('email').valid ">
+        
+        <div  *ngIf="formulario.get('email').errors.required">
+            E-mail es necesario
+            </div>
+        <div  *ngIf="formulario.get('email').errors.email">
+            E-mail incorrecto
+            </div>
+        </div>
+        
+    <button type="button" formControlName="boton" (click)="register()">Enviar</button>
+    
+        
+</form>
+
+</div>
+
