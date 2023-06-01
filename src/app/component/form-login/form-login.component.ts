@@ -1,6 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { User } from 'src/app/models/user';
 @Component({
@@ -9,7 +8,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./form-login.component.css']
 })
 
-export class FormLoginComponent implements OnInit {
+export class FormLoginComponent   {
 public formulario:FormGroup;
 
 constructor(private formBuilder:FormBuilder){
@@ -20,11 +19,11 @@ constructor(private formBuilder:FormBuilder){
 private buildForm(){
   this.formulario=this.formBuilder.group({
     "nombre":[,Validators.required],
-    "email":[,Validators.required,Validators.email]
+    "correo":[,[Validators.required,Validators.email]]
   });
   
 }
-ngOnInit():void{};
+
 register(){
    
   const user=this.formulario.value;

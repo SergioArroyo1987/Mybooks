@@ -29,3 +29,12 @@ label{
     
 
 }
+
+.error{
+    color: yellow;
+}
+button{
+    color:aqua;
+    margin-top: 10px;
+    margin-left: 60px;
+}

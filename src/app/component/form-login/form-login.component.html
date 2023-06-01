@@ -2,24 +2,26 @@
 <form [formGroup]="formulario" class="a">
     <label>Nombre</label>
     <input name="nombre" formControlName="nombre" 
-    [ngClass]="{'error':(formulario.get('nombre').dirty ||formulario.get('nombre').touched &&!formulario.get('nombre').valid)}">
-    <div  *ngIf="!formulario.get('nombre').valid ">
-        El nombre es necesario
+    >
+    <div  *ngIf="!formulario.get('nombre').valid && formulario.get('nombre').dirty ||formulario.get('nombre').touched ">
+        <div class="error" *ngIf="formulario.get('nombre').errors.required">
+            Nombre es necesario
+            </div>
         </div>
     <label>E-mail</label>
-    <input name="E-mail" formControlName="email" 
-    [ngClass]="{'error':(formulario.get('email').dirty ||formulario.get('email').touched &&!formulario.get('email').valid)}">
-    <div  *ngIf="!formulario.get('email').valid ">
+    <input name="E-mail" formControlName="correo" 
+    >
+    <div  *ngIf="!formulario.get('correo').valid && formulario.get('correo').dirty ||formulario.get('correo').touched  ">
         
-        <div  *ngIf="formulario.get('email').errors.required">
+        <div class="error" *ngIf="formulario.get('correo').errors.required">
             E-mail es necesario
             </div>
-        <div  *ngIf="formulario.get('email').errors.email">
+        <div  *ngIf="formulario.get('correo').errors.email && formulario.get('correo').dirty  ">
             E-mail incorrecto
             </div>
         </div>
         
-    <button type="button" formControlName="boton" (click)="register()">Enviar</button>
+    <button type="button"  (click)="register()" [disabled]="formulario.invalid">Enviar</button>
     
         
 </form>

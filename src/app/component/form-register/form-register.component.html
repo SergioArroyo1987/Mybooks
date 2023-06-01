@@ -1,33 +1,83 @@
 <div class="principal">
-    <form action="/my-handling-form-page" method="post">
+    <form [formGroup]="formulario" method="post">
         
         <ul>
             <h2><u>REGISTRATE</u></h2>
         <li>
         <label for="name">Nombre:</label>
-       <input type="text" id="name" name="user_name">
+       <input type="text" id="name" name="user_name" formControlName="nombre">
         </li>
+        <div  *ngIf="!formulario.get('nombre').valid && (formulario.get('nombre').dirty ||formulario.get('nombre').touched) ">
+            <div class="error" *ngIf="formulario.get('nombre').errors.required">
+                Nombre es necesario
+                </div>
+            </div>
         <li>
        <label for="apellido">Apellido:</label>
-       <input type="text" id="apellido" name="user_apellido">
+       <input type="text" id="apellido" name="user_apellido"formControlName="apellido">
         </li>
+        <div  *ngIf="!formulario.get('apellido').valid && formulario.get('apellido').dirty ||formulario.get('apellido').touched ">
+            <div class="error" *ngIf="formulario.get('apellido').errors.required">
+                Apellido es necesario
+                </div>
+            </div>
         <li>
         <label for="email">Email:</label>
-        <input type="text" id="email" name="user_email">
+        <input type="text" id="email" name="user_email" formControlName="correo">
         </li>
+        <div  *ngIf="!formulario.get('correo').valid && formulario.get('correo').dirty ||formulario.get('correo').touched  ">
+        
+            <div class="error" *ngIf="formulario.get('correo').errors.required">
+                E-mail es necesario
+                </div>
+            <div class="error" *ngIf="formulario.get('correo').errors.email  ">
+                E-mail incorrecto
+                </div>
+            </div>
         <li>
         <label for="url">Url:</label>
-        <input type="text" id="url" name="user_url">
+        <input type="text" id="url" name="user_url"formControlName="url">
         </li>
+        <div  *ngIf="!formulario.get('url').valid && formulario.get('url').dirty ||formulario.get('url').touched ">
+            <div class="error" *ngIf="formulario.get('url').errors.required">
+                Url es necesario
+                </div>
+            </div>
+        
         <li>
         <label for="contraseña">Contraseña:</label>
-        <input type="password" pattern=".{6,}">
+        <input type="password" formControlName="contraseña">
         </li>
+        <div  *ngIf="!formulario.get('contraseña').valid && formulario.get('contraseña').dirty ||formulario.get('contraseña').touched  ">
+        
+            <div class="error" *ngIf="formulario.get('contraseña').errors.required">
+                Contraseña es necesario
+                </div>
+            <div class="error" *ngIf="formulario.get('contraseña').errors.minlength  ">
+                La contraseña debe contener minimo 6 caracteres.
+                </div>
+            </div>
         <li>
         <label for="repetircontraseña">Repetir Contraseña:</label>
-        <input type="password" pattern=".{6,}">
+        <input type="password" formControlName="repetir">
         </li>
-     
+        <div  *ngIf="!formulario.get('repetir').valid && formulario.get('repetir').dirty ||formulario.get('repetir').touched  ">
+        <div class="error" *ngIf="formulario.get('repetir').errors.required">
+            Contraseña es necesario
+            </div>
+        <div class="error" *ngIf="formulario.get('repetir').errors.minlength  ">
+            La contraseña debe contener minimo 6 caracteres.
+            </div>
+         
+            <div class="error" *ngIf="'!comprobar()'&&formulario.get('repetir').valid &&formulario.get('contraseña').valid   ">
+                Contraseña no coincide
+                </div>
+            
+            </div>
+            
+            <button type="button"  (click)="register()" [disabled]="formulario.invalid">Enviar</button>
         </ul>
+        
+        
         </form>
 </div>
