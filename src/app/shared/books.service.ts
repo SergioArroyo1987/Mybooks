@@ -13,13 +13,13 @@ export class BooksService {
    add(libro:Book){
     
     
-    console.log("hola");
+  
     
     return this.http.post(this.url,libro);
 
    }
    getall(){
-    console.log("chupi");
+    
     
     return this.http.get(this.url);
 

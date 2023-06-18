@@ -19,7 +19,7 @@ export class LibrosComponent {
 getall(){
   this.servicio.getall().subscribe((data:Book[])=>{
   this.libros=data;
-  console.log("sergio");
+  
   
 })}
 
