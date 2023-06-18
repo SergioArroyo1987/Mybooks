@@ -1,47 +1,52 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import { Book } from '../models/book';
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  private libros:Book[];
-  constructor() {
-    this.libros=[
-      new Book("sergio","Arroyo","Terror",109,"https://mott.pe/noticias/wp-content/uploads/2016/03/libros-bb.jpg",1),
-      new Book("Irene","Arroyo","Terror",109,"https://mott.pe/noticias/wp-content/uploads/2016/03/libros-bb.jpg",2)
-      ]  ;
+   
+  private url="http://localhost:3000/book";
+  constructor(private http:HttpClient) {
+    
    }
-   add(libro:Book):void{
-    this.libros.push(libro);
+   add(libro:Book){
+    
+    
+    console.log("hola");
+    
+    return this.http.post(this.url,libro);
 
    }
-   getall():Book[]{
-    return this.libros;
+   getall(){
+    console.log("chupi");
+    
+    return this.http.get(this.url);
 
    }
-   getOne(idlibro:number):Book{
-    for(let recorer of this.libros){
-      if(recorer.id_book==idlibro){
-        return recorer;
+   getOne(idlibro:number){
+    
+    
+        return this.http.get(this.url)
       }
-    }
+    
+   
+   delete(id:number){
+    
+    return this.http.request('delete',this.url,{body:{id_book:id}});
    }
-   delete(id:number):boolean{
-    this.libros=this.libros.filter(libros=>libros.id_book!=id);
-    return true;
-   }
-   edit(libro:Book):boolean{
-    let modificacion=false;
-    for(let a=0;a<=this.libros.length;a++){
-      if(libro.id_book==this.libros[a].id_book){
-        this.libros[a]=libro;
-        modificacion=true;
-      }
+   edit(libro:Book){
+    console.log(libro);
+    
+    
+      return this.http.put(this.url,libro);
     }
-    console.log(modificacion);
-    return modificacion;
+    
+    
     
     
    }
+   
 
-}
+
+

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-update-books',
   templateUrl: './update-books.component.html',
@@ -11,7 +12,14 @@ export class UpdateBooksComponent {
   
   }
   enviar(id:number,titulo:string,autor:string,precio:number,url:string,genero:string,user:number){
-    this.librosServicio.edit(new Book(titulo,genero,autor,precio,url,id,user));
+    console.log("sergio");
+    let mandar=new Book(titulo,genero,autor,precio,url,id,user);
+    
+    
+    this.librosServicio.edit(mandar).subscribe((data:Book)=>{
+      
+
+    })
     
     
   }

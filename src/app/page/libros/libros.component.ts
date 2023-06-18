@@ -2,34 +2,54 @@ import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-libros',
   templateUrl: './libros.component.html',
   styleUrls: ['./libros.component.css']
 })
 export class LibrosComponent {
-  libros:Book[];
+  public libro:Book;
+  libros:Book[]=[];
   mostrar:Book;
-  constructor(public libro:BooksService,private router:Router){
-    this.libros=libro.getall();
+  constructor(public servicio:BooksService,private router:Router){
+    this.getall();
     
 }
+getall(){
+  this.servicio.getall().subscribe((data:Book[])=>{
+  this.libros=data;
+  console.log("sergio");
+  
+})}
 
 enviar(id:number,titulo:string,autor:string,precio:number,url:string,genero:string,user:number){
-  this.libros.push(new Book(titulo,genero,autor,precio,url,id,user));
+  let recibido=new Book(titulo,genero,autor,precio,url,id,user);
+  console.log(recibido);
+  
+  this.servicio.add(recibido).subscribe((data:Boolean)=>{
+    
+
+  })
 }
 eliminarlibro(borrarlibro:number):void{
   
+  console.log("eliminar");
   
- this.libros= this.libros.filter(libros=>libros.id_book!=borrarlibro);
- this.libro.delete(borrarlibro);
+   this.servicio.delete(borrarlibro).subscribe((data:Boolean)=>{
+  
+   })
+   this.getall();
 }
 buscarfuncion(a:number){
   if(a){
   this.libros=[];
-   this.libros.push(this.libro.getOne(a));
+   this.servicio.getOne(a).subscribe((data:Book)=>{
+    this.libros.push(data);
+   });
+   
   }else{
-    this.libros=this.libro.getall();
+    this.getall();
   }  
   
   

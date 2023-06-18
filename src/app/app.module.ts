@@ -16,6 +16,7 @@ import { CardComponent } from './component/card/card.component';
 import { LoginComponent } from './page/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule}from '@angular/common/http';
 
 
 
@@ -43,7 +44,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
